@@ -23,7 +23,7 @@ namespace day15Inheritance
             this.balance = balance;
         }
 
-        // Savings Withdrawal Override Method
+        // Savings Withdrawal Method (Account Abstract)
         public override void Withdraw()
         {
             Console.WriteLine(accntType + "\nAccount #: " + accntNum + "\n");
@@ -44,7 +44,7 @@ namespace day15Inheritance
             Console.WriteLine(string.Format("Remaining balance: {0:C}", this.balance));
         }
 
-        // Savings Deposit Override Method
+        // Savings Deposit Method (Account Virtual)
         public override void Deposit()
         {
             

@@ -20,7 +20,7 @@ namespace day15Inheritance
 
     //*************** Methods *****************************
 
-        // Checking Withdrawal Method
+        // Checking Withdrawal Method (Account Abstract)
         public override void Withdraw()
         {
             Console.WriteLine(accntType + "\nAccount #: " + accntNum + "\n");
@@ -40,7 +40,7 @@ namespace day15Inheritance
             Console.WriteLine(string.Format("Remaining balance: {0:C}", this.balance));
         }
 
-        // Checking Deposit Method
+        // Checking Deposit Method (Account Virtual)
         public override void Deposit()
         {           
             base.Deposit();

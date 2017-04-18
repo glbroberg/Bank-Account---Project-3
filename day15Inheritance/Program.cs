@@ -10,23 +10,49 @@ namespace day15Inheritance
     {
         static void Main(string[] args)
         {
-            Client clientInst = new Client("justin reed", "724-942-4858", "judge@gmail.com", "1234567", "7654321");
-            SaveAccount clientInstSave = new SaveAccount(clientInst, 10000);
-            CheckAccount clientInstCheck = new CheckAccount(clientInst, 5000);
-         
+            /**************************************************************************************************
+             *                                                                                                *
+             *************** MUST CHOOSE A NAME FROM THE FOLLOWING 'clientList' ARRAY *************************
+             *                                                                                                *
+             * ***********************************************************************************************/
+            
+            // Set Up User Array          
+            string[,] clientList = new string[,]   {{ "Justin Reed", "724-344-8080", "jreed@gmail.com", "1234567", "2000", "7654321", "10000" },
+                                                    { "Mary Goodge", "724-908-7087", "mgoodge@gmail.com", "1245679", "1000", "2356890", "5000"},
+                                                    { "Lars Broberg", "724-344-5184", "lbroberg@gmail.com", "9865431", "1500", "2312563", "7000"},
+                                                    { "Lebron James", "216-296-2345", "bronbron@ngmail.com", "7473921", "300000", "1212123", "5000000"},
+                                                    { "Sherlock Holmes", "550-123-2575", "221b@bakerstreet.com", "7846533", "400", "4444333", "22000"},
+                                                    { "Spike Spiegel", "111-222-3333", "viciousgonnagetit@gbebop.com", "8989898", "0", "0101010", "500"}};
+
+            // Determine If User Log-in Is Legit
+            int clientIndex = -1;
+            while (clientIndex == -1)
+            {
+                Console.Write("Please enter a valid user name: ");
+                string nameInput = Console.ReadLine();
+                for (int i = 0; i < clientList.GetLength(0); i++)
+                {
+                    if (clientList[i, 0].ToLower() == nameInput.ToLower())
+                    {
+                        clientIndex = i;
+                    }
+                }
+            }
+
+            // Instantiate Proper Objects
+            Client clientInst = new Client(clientList[clientIndex, 0], clientList[clientIndex, 1], clientList[clientIndex, 2], clientList[clientIndex, 3], clientList[clientIndex, 5]);
+            SaveAccount clientInstSave = new SaveAccount(clientInst, decimal.Parse(clientList[clientIndex, 6]));
+            CheckAccount clientInstCheck = new CheckAccount(clientInst, decimal.Parse(clientList[clientIndex, 4]));
+
             // Variables
             int menuSelect;
-            
-            // Introduction
-            //Console.WriteLine("Please enter your name: ");
-            //string accountName = Console.ReadLine();
-            //Console.Clear();
 
-            // Main Menu Loop
+    //********* Main Menu Loop ***************
             do
             {
-                // Main Menu                   
-                Console.WriteLine("Hello +accountName"+"\n\n1. View Client Information \n2. View Account Balance"+ 
+                // Main Menu  
+                Console.Clear();
+                Console.WriteLine("Hello " + clientList[clientIndex, 0] + "\n\n1. View Client Information \n2. View Account Balance" +
                                                             "\n3. Deposit Funds \n4. Withdraw Funds \n5. Exit");
                 bool menuCheck = int.TryParse(Console.ReadLine(), out menuSelect);
                 Console.WriteLine();
@@ -62,7 +88,7 @@ namespace day15Inheritance
                                 break;
                         }
                         FinishedPrompt();
-                        Console.Clear(); 
+                        Console.Clear();
                         break;
 
                     // Deposit
@@ -96,23 +122,23 @@ namespace day15Inheritance
                         switch (accntType4)
                         {
                             // Checking Withdrawal
-                            case "1":                                
+                            case "1":
                                 clientInstCheck.Withdraw();
                                 break;
 
                             // Savings Withdrawal
-                            case "2":                               
+                            case "2":
                                 clientInstSave.Withdraw();
                                 break;
 
                             default:
-                                Console.WriteLine("Please pick a valid option.  Back to main menu.");
+                                Console.WriteLine("Please pick a valid option.  Back to main menu.  ");
                                 break;
                         }
                         FinishedPrompt();
                         Console.Clear();
                         break;
-                       
+
                     // Exit
                     case 5:
                         Console.WriteLine("Thank you and have a nice day.");
@@ -124,13 +150,12 @@ namespace day15Inheritance
                         break;
                 }
 
-            } while (menuSelect != 5) ;
+            } while (menuSelect != 5);
         }
 
         
-        
-     //**************** Main Menu Navigation Methods *******************
-        
+    //**************** Main Menu Navigation Methods *******************
+
         //Checking or Savings Account Selector 
         static string AccountTypeSelect()
         {
@@ -146,7 +171,7 @@ namespace day15Inheritance
             Console.WriteLine();
             Console.WriteLine("Please press enter to continue");
             string totsDoesntMatter = Console.ReadLine();
-            Console.WriteLine();         
+            Console.WriteLine();
         }
 
 

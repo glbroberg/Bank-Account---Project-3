@@ -8,13 +8,14 @@ namespace day15Inheritance
 {
     abstract class Account
     {
+        // Fields
         protected string owner;
         protected string accntNum;
         protected decimal balance;               
         protected string accntType;
 
 
-        //******************* Methods *************************
+    //******************* Methods *************************
 
         // Constructor - Default
         public Account()
@@ -30,10 +31,10 @@ namespace day15Inheritance
         }
 
 
-        // Withdraw Method
+        // Withdraw Method (Abstract)
         public abstract void Withdraw();
 
-        // Deposit Method
+        // Deposit Method (Virtual)
         public virtual void Deposit()
         {
             Console.WriteLine(accntType + "\nAccount #: " + accntNum);
