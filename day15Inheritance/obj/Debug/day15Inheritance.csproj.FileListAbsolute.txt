@@ -1,0 +1,6 @@
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\bin\Debug\day15Inheritance.exe.config
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\obj\Debug\day15Inheritance.csprojResolveAssemblyReference.cache
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\bin\Debug\day15Inheritance.exe
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\bin\Debug\day15Inheritance.pdb
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\obj\Debug\day15Inheritance.exe
+c:\users\garrett\documents\visual studio 2015\Projects\day15Inheritance\day15Inheritance\obj\Debug\day15Inheritance.pdb
